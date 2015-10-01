@@ -82,6 +82,8 @@ class Connection(object):
         except Exception:
             Connection.__setattr__(self, 'response', response)
             raise
+        if self.debug:
+            Connection.__setattr__(self, 'response', response)
         return iter(result.entities), result.entity_count
 
     def _post(self, path, rest, data):
@@ -104,4 +106,6 @@ class Connection(object):
         except Exception:
             Connection.__setattr__(self, 'response', response)
             raise
+        if self.debug:
+            Connection.__setattr__(self, 'response', response)
         return iter(result.entities), result.entity_count

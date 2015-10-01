@@ -165,6 +165,7 @@ class T1(Connection):
                  session_id=None,
                  environment='production',
                  api_base=None,
+                 debug=False,
                  **kwargs):
         """Set up session for main service object.
 
@@ -186,6 +187,7 @@ class T1(Connection):
         self._authenticated = False
         self._auth = (self.username, self.password, self.api_key)
         self.environment = environment
+        self.debug = debug
         super(T1, self).__init__(environment, api_base=api_base, **kwargs)
         if auth_method is not None:
             self.authenticate(auth_method, session_id=session_id, **kwargs)
